@@ -54,11 +54,13 @@ def mirror(name):
 def get_all_restaurants():
     restaurants = db.get('restaurants')
     minRating = request.args.get('minRating')
+    if minRating is None:
+      return create_response({"restaurants": restaurants})
     filtered_restaurants = []
     for restaurant in restaurants:
-      if (restaurant['rating'] >= int(minRating)):
+      if restaurant['rating'] >= int(minRating):
         filtered_restaurants.append(restaurant)
-    if(len(filtered_restaurants) == 0):
+    if len(filtered_restaurants) == 0:
       error_msg = "No restaurant has a rating of " + minRating + " or higher."
       return create_response(status=404, message=error_msg)
     return create_response({"restaurants": filtered_restaurants})
