@@ -7,7 +7,6 @@ db_state = initial_db_state
 def get(type):
     return db_state[type]
 
-
 def getById(type, id):
     return next((i for i in get(type) if i["id"] == id), None)
 
