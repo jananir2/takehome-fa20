@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Instructions from './Instructions'
 import Restaurant from './Restaurant'
+import Counter from './Counter'
 
 class App extends Component {
   constructor(props) {
@@ -17,9 +18,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Instructions />
+        <Counter/>
+        <Instructions complete={true} />
         {this.state.restaurants.map(x => (
-          <Restaurant id={x.id} name={x.name} rating={x.rating} />
+          <Restaurant id={x.id} name={x.name} episodes_seen={x.episodes_seen} />
         ))}
       </div>
     )
