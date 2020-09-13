@@ -18,10 +18,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Counter/>
+        <Counter />
         <Instructions complete={true} />
         {this.state.restaurants.map(x => (
-          <Restaurant id={x.id} name={x.name} episodes_seen={x.episodes_seen} />
+          <Restaurant id={x.id} name={x.name} rating={x.rating} />
         ))}
       </div>
     )
